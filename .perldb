@@ -1,0 +1,5 @@
+# taken from: http://blogs.perl.org/users/chisel/2011/10/simple-config-for-the-perl-debugger.html
+# 1000 recursion limit (instead of 100)
+$DB::deep=1000;
+# run v after every command. "unless" is there for R (w/o it two v's are stackted on a restart, etc.)
+sub afterinit { push @DB::typeahead, "{{v" unless $DB::already_curly_curly_v++; };
