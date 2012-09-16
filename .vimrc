@@ -6,3 +6,6 @@ set expandtab
 
 " .tt uses tt2html syntax plugin
 autocmd BufNewFile,BufRead *.tt set filetype=tt2html
+
+" .spec: don't expand existing tabs
+autocmd BufNewFile,BufRead *.spec set noexpandtab
