@@ -10,3 +10,6 @@ fi
 # vi is default editor on fedora
 # using vim makes for nice git commit syntax highlight
 export EDITOR=vim
+
+# append to the history file, don't overwrite it
+shopt -s histappend
