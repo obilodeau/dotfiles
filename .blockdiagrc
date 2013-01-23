@@ -1,0 +1,7 @@
+[blockdiag]
+fontpath = /usr/share/fonts/dejavu/DejaVuSerif.ttf
+#fontpath = /usr/share/fonts/liberation/LiberationSans-Regular.ttf
+
+[nwdiag]
+fontpath = /usr/share/fonts/dejavu/DejaVuSerif.ttf
+#fontpath = /usr/share/fonts/liberation/LiberationSans-Regular.ttf
