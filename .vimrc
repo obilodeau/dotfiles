@@ -12,7 +12,11 @@ if has("autocmd")
   \ endif
 endif
 
+" Textile plugin
+" http://www.vim.org/scripts/script.php?script_id=2305
+
 " .tt uses tt2html syntax plugin
+" http://www.vim.org/scripts/script.php?script_id=830
 autocmd BufNewFile,BufRead *.tt set filetype=tt2html
 
 " .spec: don't expand existing tabs
@@ -23,3 +27,4 @@ autocmd FileType perl setlocal expandtab autoindent shiftwidth=4 tabstop=4
 
 " python 
 autocmd FileType python setlocal expandtab autoindent shiftwidth=4 tabstop=4
+
