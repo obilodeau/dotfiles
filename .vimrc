@@ -19,6 +19,15 @@ endif
 " http://www.vim.org/scripts/script.php?script_id=830
 autocmd BufNewFile,BufRead *.tt set filetype=tt2html
 
+" .md uses markdown syntax plugin
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+" .ad, .adoc, .asciidoc uses asciidoc syntax plugin
+" use vim-addons to manage asciidoc plugin
+autocmd BufNewFile,BufRead *.ad set filetype=asciidoc
+autocmd BufNewFile,BufRead *.adoc set filetype=asciidoc
+autocmd BufNewFile,BufRead *.asciidoc set filetype=asciidoc
+
 " .spec: don't expand existing tabs
 autocmd BufNewFile,BufRead *.spec set noexpandtab
 
