@@ -134,3 +134,9 @@ PROMPT_COMMAND="history -a"
 # load ls color profile
 # https://github.com/seebi/dircolors-solarized
 eval `dircolors ~/.dir_colors`
+
+# emulate OSX's pbcopy and pbpaste on linux
+# requires xsel package
+# via http://whereswalden.com/2009/10/23/pbcopy-and-pbpaste-for-linux/
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
