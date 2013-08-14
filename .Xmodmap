@@ -1,0 +1,8 @@
+! Remaps PrtSc to Context Menu. Useful for T431s keyboard
+!
+! Before you need to disable the PrtSc function from
+! Gnome System Settings -> Keyboard -> Shortcut
+! References:
+! http://askubuntu.com/questions/24916/how-do-i-remap-certain-keys
+! http://askubuntu.com/questions/296155/how-can-i-remap-keyboard-keys 
+keycode 107 = Menu NoSymbol Menu
