@@ -130,3 +130,7 @@ PROMPT_COMMAND="history -a"
 #if [ -d "$HOME/bin" ] ; then
 #    PATH="$HOME/bin:$PATH"
 #fi
+
+# load ls color profile
+# https://github.com/seebi/dircolors-solarized
+eval `dircolors ~/.dir_colors`

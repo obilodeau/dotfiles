@@ -3,6 +3,10 @@ syntax on
 set viminfo='20,\"500   " read/write a .viminfo file, don't store more
                         " than 500 lines of registers
 set hlsearch            " highlights search result
+" solarized colors
+set t_Co=16
+set background=dark
+colorscheme solarized
 
 " have vim jump to the last position when reopening a file
 if has("autocmd")
