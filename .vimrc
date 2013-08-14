@@ -8,6 +8,9 @@ set t_Co=16
 set background=dark
 colorscheme solarized
 
+" typo prevention: W means w
+com W w
+
 " have vim jump to the last position when reopening a file
 if has("autocmd")
   autocmd BufReadPost *
