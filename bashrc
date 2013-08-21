@@ -140,3 +140,6 @@ eval `dircolors ~/.dir_colors`
 # via http://whereswalden.com/2009/10/23/pbcopy-and-pbpaste-for-linux/
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
+
+# explicitly setting my timezone (for UTC-based servers)
+export TZ=America/Montreal
