@@ -122,6 +122,7 @@ aliases = {
   ATAG = "WINDOW SERVER";
   UNSET = "set -clear";
   RESET = "set -default";
+  READ = "script exec \\$_->activity(0) for Irssi::windows";
 };
 
 statusbar = {
