@@ -1,7 +1,19 @@
+
+# remember to install pillow's deps:
+# $ sudo aptitude install libtiff4-dev libjpeg8-dev zlib1g-dev \
+#                         libfreetype6-dev liblcms1-dev libwebp-dev \
+#                         tcl8.5-dev tk8.5-dev
+
 [blockdiag]
-fontpath = /usr/share/fonts/dejavu/DejaVuSerif.ttf
+fontpath = /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-R.ttf
+#fontpath = /usr/share/fonts/dejavu/DejaVuSerif.ttf
 #fontpath = /usr/share/fonts/liberation/LiberationSans-Regular.ttf
 
 [nwdiag]
-fontpath = /usr/share/fonts/dejavu/DejaVuSerif.ttf
+fontpath = /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-R.ttf
+#fontpath = /usr/share/fonts/dejavu/DejaVuSerif.ttf
 #fontpath = /usr/share/fonts/liberation/LiberationSans-Regular.ttf
+
+[packetdiag]
+#fontpath = /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-R.ttf
+fontpath = /usr/share/fonts/truetype/ttf-dejavu/DejaVuSerif.ttf
