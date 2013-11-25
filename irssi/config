@@ -44,14 +44,11 @@ chatnets = {
     nick = "plaxx";
     realname = "Olivier Bilodeau";
   };
+  OFTC = { type = "IRC"; };
 };
 
 channels = (
-  {
-    name = "#fingerbank";
-    chatnet = "freenode";
-    autojoin = "yes";
-  },
+  { name = "#fingerbank"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#packetfence"; chatnet = "freenode"; autojoin = "yes"; },
   {
     name = "#tomdroid";
@@ -252,11 +249,11 @@ settings = {
     hilight_color = "= %R";
   };
   "perl/core/scripts" = {
-     ### For Solarized trackbar.pl script
-     trackbar_style = "%B";
-   };
+    ### For Solarized trackbar.pl script
+    trackbar_style = "%B";
+  };
 };
-hilights = (
+hilights = ( 
   { text = "plaxx"; color = "%M"; nick = "yes"; word = "yes"; }
 );
 logs = { };
