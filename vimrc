@@ -1,5 +1,8 @@
 " stuff I like
 syntax on
+filetype on
+filetype plugin on
+
 set viminfo='20,\"500   " read/write a .viminfo file, don't store more
                         " than 500 lines of registers
 set hlsearch            " highlights search result
