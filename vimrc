@@ -34,6 +34,7 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.ad set filetype=asciidoc
 autocmd BufNewFile,BufRead *.adoc set filetype=asciidoc
 autocmd BufNewFile,BufRead *.asciidoc set filetype=asciidoc
+autocmd FileType asciidoc setlocal expandtab autoindent shiftwidth=4 tabstop=4
 
 " .spec: don't expand existing tabs
 autocmd BufNewFile,BufRead *.spec set noexpandtab
