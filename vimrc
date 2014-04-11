@@ -6,6 +6,7 @@ filetype plugin on
 set viminfo='20,\"500   " read/write a .viminfo file, don't store more
                         " than 500 lines of registers
 set hlsearch            " highlights search result
+set nojoinspaces        " don't insert two spaces after a . when joining lines
 " solarized colors
 set t_Co=16
 set background=dark
@@ -47,4 +48,8 @@ autocmd FileType perl setlocal expandtab autoindent shiftwidth=4 tabstop=4
 
 " python 
 autocmd FileType python setlocal expandtab autoindent shiftwidth=4 tabstop=4
+
+" yara
+autocmd BufNewFile,BufRead *.yar set filetype=yara
+autocmd FileType yara setlocal expandtab autoindent shiftwidth=2 tabstop=2
 
