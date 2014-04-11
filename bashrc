@@ -119,6 +119,9 @@ fi
 # vim instead of vi for fancy highlighting in git and all
 export EDITOR=vim
 
+# fix for byobu/tmux vim colors
+export TERM="screen-256color-bce"
+
 # history related
 # - append to the history file, don't overwrite it
 shopt -s histappend
