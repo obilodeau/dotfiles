@@ -5,4 +5,7 @@ Remember to modify it to point to `src/dotfiles` instead of `dotfiles`.
 
 [deploydots]: https://github.com/gostrc/deploydots
 
+Dependencies:
+
+* `aptitude install pylint`
 

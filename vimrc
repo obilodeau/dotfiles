@@ -1,7 +1,7 @@
 " stuff I like
+execute pathogen#infect()
 syntax on
-filetype on
-filetype plugin on
+filetype plugin indent on
 
 set viminfo='20,\"500   " read/write a .viminfo file, don't store more
                         " than 500 lines of registers
