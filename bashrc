@@ -149,3 +149,6 @@ alias pbpaste='xsel --clipboard --output'
 
 # explicitly setting my timezone (for UTC-based servers)
 export TZ=America/Montreal
+
+# vagrant-related
+export VAGRANT_DEFAULT_PROVIDER=libvirt
