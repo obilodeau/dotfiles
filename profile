@@ -20,3 +20,7 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+# set PATH so it includes go bin path if it exists
+if [ -d "$HOME/src/go/bin" ] ; then
+    PATH="$HOME/src/go/bin:$PATH"
+fi

@@ -152,3 +152,7 @@ export TZ=America/Montreal
 
 # vagrant-related
 export VAGRANT_DEFAULT_PROVIDER=libvirt
+
+# go
+export GOROOT=/usr/lib/go
+export GOPATH=$HOME/src/go
