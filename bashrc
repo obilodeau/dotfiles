@@ -120,7 +120,10 @@ fi
 export EDITOR=vim
 
 # fix for byobu/tmux vim colors
-export TERM="screen-256color-bce"
+# trying xterm-256color because of this issue:
+# https://bugs.launchpad.net/byobu/+bug/1338260
+#export TERM="screen-256color-bce"
+export TERM="xterm-256color"
 
 # history related
 # - append to the history file, don't overwrite it
