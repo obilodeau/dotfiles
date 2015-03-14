@@ -49,7 +49,12 @@ autocmd FileType perl setlocal expandtab autoindent shiftwidth=4 tabstop=4
 " python 
 autocmd FileType python setlocal expandtab autoindent shiftwidth=4 tabstop=4
 
+" html/js
+autocmd FileType html setlocal expandtab autoindent shiftwidth=4 tabstop=4
+autocmd FileType javascript setlocal expandtab autoindent shiftwidth=4 tabstop=4
+
 " yara
 autocmd BufNewFile,BufRead *.yar set filetype=yara
+autocmd BufNewFile,BufRead *.yara set filetype=yara
 autocmd FileType yara setlocal expandtab autoindent shiftwidth=2 tabstop=2
 
