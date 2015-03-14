@@ -1,0 +1,6 @@
+# override colors for gdbinit 
+set $COLOR_REGNAME = $GREEN
+set $COLOR_REGVAL = $YELLOW
+set $COLOR_REGVAL_MODIFIED  = $RED
+set $COLOR_SEPARATOR = $BLUE
+set $COLOR_CPUFLAGS = $RED
