@@ -5,5 +5,7 @@
 	tool = diffuse
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	# assumes git.git clone at ~/src/git
+	diff-highlight = "!f() { git diff \"$@\" | ~/src/git/contrib/diff-highlight/diff-highlight; }; f"
 [color]
 	diff = auto
