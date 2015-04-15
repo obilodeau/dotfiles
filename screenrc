@@ -1,7 +1,8 @@
 # .screenrc
 #
+# update: no longer using screen and I think byobu does this by default
 # inject ssh-agent env variable pointing to proper agent symlink
 # make sure to create ~/.screen/ directory
 # from http://www.jukie.net/bart/blog/screen-ssh-agent
-unsetenv SSH_AUTH_SOCK
-setenv SSH_AUTH_SOCK $HOME/.screen/ssh-auth-sock.$HOSTNAME
+#unsetenv SSH_AUTH_SOCK
+#setenv SSH_AUTH_SOCK $HOME/.screen/ssh-auth-sock.$HOSTNAME
