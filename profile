@@ -24,3 +24,13 @@ fi
 if [ -d "$HOME/src/go/bin" ] ; then
     PATH="$HOME/src/go/bin:$PATH"
 fi
+
+# work cli tools
+if [ -d "$HOME/eset/src/sip-cli" ] ; then
+    PATH="$HOME/eset/src/sip-cli:$PATH"
+fi
+
+# my cli tools
+if [ -d "$HOME/src/cli-tools" ] ; then
+    PATH="$HOME/src/cli-tools:$PATH"
+fi
