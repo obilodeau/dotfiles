@@ -7,4 +7,3 @@
 #    ln -sf "$SSH_AUTH_SOCK" "$HOME/.screen/ssh-auth-sock.$HOSTNAME"
 #}
 #alias screen='_ssh_auth_save ; export HOSTNAME=$(hostname) ; screen'
-

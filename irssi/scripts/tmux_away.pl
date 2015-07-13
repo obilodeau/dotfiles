@@ -4,13 +4,14 @@ use FileHandle;
 
 use vars qw($VERSION %IRSSI);
 
-$VERSION = "1.1";
+$VERSION = "2.0";
 %IRSSI = (
-    authors     => 'cdidier',
+    authors     => 'John C. Vernaleo',
+    contact     => 'john@netpurgatory.com',
     name        => 'tmux_away',
-    description => 'set (un)away, if tmux session is attached/detached',
+    description => 'set (un)away if tmux session is attached/detached',
     license     => 'GPL v2',
-    url         => 'http://cybione.org',
+    url         => 'http://www.netpurgatory.com/tmux_away.html',
 );
 
 # tmux_away irssi module
@@ -18,6 +19,9 @@ $VERSION = "1.1";
 # Written by Colin Didier <cdidier@cybione.org> and heavily based on
 # screen_away irssi module version 0.9.7.1 written by Andreas 'ads' Scherbaum
 # <ads@ufp.de>.
+#
+# Updated by John C. Vernaleo <john@netpurgatory.com> to handle tmux with
+# named sessions and other code cleanup and forked as version 2.0.
 #
 # usage:
 #
@@ -32,7 +36,7 @@ $VERSION = "1.1";
 # /set tmux_away_window <string>
 # /set tmux_away_nick <string>
 #
-# active means, that you will be only set away/unaway, if this
+# active means that you will be only set away/unaway, if this
 #   flag is set, default is ON
 # repeat is the number of seconds, after the script will check the
 #   tmux session status again, default is 5 seconds
@@ -52,11 +56,11 @@ my %away = ();
 # Register formats
 Irssi::theme_register(
 [
- 'tmux_away_crap', 
+ 'tmux_away_crap',
  '{line_start}{hilight ' . $IRSSI{'name'} . ':} $0'
 ]);
 
-# try to find out, if we are running in a tmux session
+# try to find out if we are running in a tmux session
 # (see if $ENV{TMUX} is set)
 if (!defined($ENV{TMUX})) {
   # just return, we will never be called again
@@ -66,8 +70,11 @@ if (!defined($ENV{TMUX})) {
 }
 
 my @args_env = split(',', $ENV{TMUX});
-my $tmux_socket = @args_env[0];
-my $tmux_session = @args_env[2];
+
+# Get session name.  Must be connected for this to work, but since this either
+# happens at startup or based on user command, should be okay.
+my $tmux_session = `tmux display-message -p '#S'`;
+chomp($tmux_session);
 
 # register config variables
 Irssi::settings_add_bool('misc', $IRSSI{'name'} . '_active', 1);
@@ -93,18 +100,15 @@ sub tmux_away {
     }
 
     # get actual tmux session status
-    @res = `tmux -S '$tmux_socket' lsc 2>&1`;
-    if (@res[0] =~ /^server not found/) {
+    @res = `tmux list-clients -t $tmux_session`;
+    if (@res[0] =~ /^failed to connect to server/) {
       Irssi::printformat(MSGLEVEL_CLIENTCRAP, 'tmux_away_crap',
         "error getting tmux session status.");
       return;
     }
     $status = 1; # away, assumes the session is detached
-    foreach (@res) {
-      my @args_st = split(' ');
-      if (@args_st[1] == $tmux_session) {
-        $status = 2; # unaway
-      }
+    if ($#res != -1) {
+	$status = 2; # unaway
     }
 
     # unaway -> away
@@ -121,11 +125,11 @@ sub tmux_away {
       }
       foreach (Irssi::servers()) {
         if (!$_->{usermode_away}) {
-	  # user isnt yet away
+	  # user isn't yet away
 	  $away{$_->{'tag'}} = 0;
 	  $_->command("AWAY " . ($_->{chat_type} ne 'SILC' ? "-one " : "") . "$message");
 	  if ($_->{chat_type} ne 'XMPP' and length(Irssi::settings_get_str($IRSSI{'name'} . '_nick')) > 0) {
-            # only change, if actual nick isnt already the away nick
+            # only change if actual nick isn't already the away nick
             if (Irssi::settings_get_str($IRSSI{'name'} . '_nick') ne $_->{nick}) {
               # keep old nick
               $old_nicks{$_->{'tag'}} = $_->{nick};
@@ -146,7 +150,7 @@ sub tmux_away {
       Irssi::printformat(MSGLEVEL_CLIENTCRAP, 'tmux_away_crap', "Reset away");
       foreach (Irssi::servers()) {
         if ($away{$_->{'tag'}} == 1) {
-          # user was already away, dont reset away
+          # user was already away, don't reset away
           $away{$_->{'tag'}} = 0;
           next;
         }
