@@ -11,3 +11,5 @@
 # irssi incompatible with 256 colors
 # https://bbs.archlinux.org/viewtopic.php?id=120416
 alias irssi='TERM=xterm-color $(which irssi)'
+
+alias rot13="tr '[A-Za-z]' '[N-ZA-Mn-za-m]'"
