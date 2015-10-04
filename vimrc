@@ -48,6 +48,8 @@ autocmd FileType perl setlocal expandtab autoindent shiftwidth=4 tabstop=4
 
 " python 
 autocmd FileType python setlocal expandtab autoindent shiftwidth=4 tabstop=4
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_python_pylint_exec = '/usr/bin/pylint3'
 
 " html/js
 autocmd FileType html setlocal expandtab autoindent shiftwidth=4 tabstop=4
