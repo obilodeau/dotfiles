@@ -24,6 +24,11 @@ fi
 if [ -d "$HOME/src/go/bin" ] ; then
     PATH="$HOME/src/go/bin:$PATH"
 fi
+# local gems
+GEMDIR=$(ruby -e 'print Gem.user_dir')
+if [ -d "$GEMDIR/bin" ] ; then
+    PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+fi
 
 # work cli tools
 if [ -d "$HOME/eset/src/sip-cli" ] ; then
