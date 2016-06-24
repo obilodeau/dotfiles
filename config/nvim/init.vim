@@ -13,6 +13,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 " class outline viewer
 Plug 'majutsushi/tagbar'
+" buffer bar
+Plug 'bling/vim-bufferline'
 
 " auto-completion
 function! DoRemote(arg)
@@ -58,6 +60,9 @@ nmap \q :nohlsearch<CR>
 "
 " PLUGIN CONFIG
 "
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
 
 " NERDTree
 nmap <F5> :NERDTreeToggle<CR>
