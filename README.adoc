@@ -1,0 +1,18 @@
+= README
+
+Using https://github.com/gostrc/deploydots[deploydots] to deploy my
+dotfiles.
+
+Remember to patch it to point to `src/dotfiles` instead of `dotfiles`.
+
+== Config dependencies
+
+* `aptitude install pylint`
+* pygments and manually install color scheme for ipython qtconsole w/ solarized theme:
+  https://bitbucket.org/joon/color-schemes-for-ipython-qt-console/
+
+== vim / nvim
+
+Use `nvim` and on first startup after having deployed the files:
+
+    :PlugInstall
