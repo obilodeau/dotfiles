@@ -9,12 +9,15 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 " status bar
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " magic ctrl-P
 Plug 'ctrlpvim/ctrlp.vim'
 " class outline viewer
 Plug 'majutsushi/tagbar'
 " buffer bar
 Plug 'bling/vim-bufferline'
+" solarized theme
+Plug 'altercation/vim-colors-solarized'
 
 " auto-completion
 function! DoRemote(arg)
@@ -28,6 +31,9 @@ call plug#end()
 "
 " CONFIG
 "
+set background=dark
+colorscheme solarized
+syntax on
 
 "
 " BINDINGS
@@ -63,6 +69,7 @@ nmap \q :nohlsearch<CR>
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='solarized'
 
 " NERDTree
 nmap <F5> :NERDTreeToggle<CR>
