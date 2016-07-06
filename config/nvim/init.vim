@@ -25,6 +25,9 @@ function! DoRemote(arg)
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
+" the day I need javascript completion
+" Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -90,3 +93,46 @@ let g:tagbar_type_asciidoc = {
     \ ],
     \ 'sort' : 0
 \ }
+
+" Deoplete
+"let g:deoplete#enable_at_startup = 1
+"set completeopt+=noinsert
+"imap     <Nul> <C-Space>
+"inoremap <expr><C-Space> deoplete#mappings#manual_complete()
+"inoremap <expr><BS>      deoplete#mappings#smart_close_popup()."\<C-h>"
+"" Go to definition with F2
+"nmap <F2> gd<CR>
+let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+" let g:deoplete#disable_auto_complete = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" omnifuncs
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
+
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" syntastic
+nmap <F6> :SyntasticToggleMode<CR> 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"TODO: omni / filetype / deoplete still needs to be untangled
+"Omni Completion
+"filetype plugin on
+set omnifunc=syntaxcomplete#Complete
